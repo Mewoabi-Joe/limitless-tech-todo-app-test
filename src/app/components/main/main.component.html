@@ -1,0 +1,20 @@
+<div class="uncompleted-todos">
+  <h2>Tasks</h2>
+
+  <app-todo-item
+    *ngFor="let todo of notCompletedTodos"
+    [todo]="todo"
+    [isCompleted]="false"
+  >
+  </app-todo-item>
+</div>
+
+<div class="completed-todos">
+  <h2>Completed</h2>
+  <app-todo-item
+    *ngFor="let otherTodo of completedTodos"
+    [todo]="otherTodo"
+    [isCompleted]="true"
+  >
+  </app-todo-item>
+</div>

@@ -1,0 +1,150 @@
+/* You can add global styles to this file, and also import other style files */
+
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+.clearfix::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+.timepicker-overlay {
+  z-index: 1000 !important;
+}
+.my-input {
+  position: relative;
+  top: 0px;
+  left: 36px;
+}
+
+textArea:disabled,
+input:disabled {
+  color: #000000 !important;
+}
+
+mat-mdc-select-value-text:disabled {
+  color: #000000 !important;
+}
+
+ngx-material-timepicker-toggle {
+  position: relative;
+  bottom: 27px;
+}
+
+.center-main {
+  display: block;
+  width: 90% !important;
+  margin: 15px auto !important;
+}
+
+.uncompleted-todos {
+  margin-bottom: 40px;
+}
+
+.todo-item-card {
+  margin-bottom: 8px;
+}
+
+.the-clickable-part:hover {
+  background: #ccc;
+  cursor: pointer;
+}
+
+.transparent {
+  color: transparent;
+}
+
+mat-card {
+  margin-bottom: 20px;
+}
+
+mat-chip {
+  background-color: hsl(231, 48%, 60%) !important;
+}
+
+mat-chip:disabled {
+  background-color: transparent !important;
+}
+
+input[type="checkbox"] {
+  z-index: 1000 !important;
+}
+
+.m-0-p-0 {
+  margin: 0px !important;
+  padding: 0px !important;
+}
+
+.ml-10 {
+  margin-left: 10px;
+}
+
+.mr-10 {
+  margin-right: 10px;
+}
+
+.w-100 {
+  width: 100%;
+}
+
+.w-50 {
+  width: 50%;
+}
+
+.p-10 {
+  padding: 10px;
+}
+
+.pb-10 {
+  padding-bottom: 10px;
+}
+
+.mb-10 {
+  margin-bottom: 10px;
+}
+
+.mb-20 {
+  margin-bottom: 20px;
+}
+
+.pb-20 {
+  padding-bottom: 20px !important;
+}
+
+.p-20 {
+  padding: 20px;
+}
+
+.inline-to-end {
+  float: right;
+}
+
+/* mat-list-item {
+  padding: 20px 0px !important;
+  border: 1px solid rgba(0, 0, 0, 0.12) !important;
+  margin: 30px 0px !important;
+}
+
+app-todo-item {
+  padding: 20px 0px !important;
+  margin: 30px 0px !important;
+} */
+
+/* mat-selection-list mat-icon {
+  order: 3;
+}
+mat-selection-list span.mdc-list-item__content {
+  margin-left: 20px;
+  margin-top: 5px;
+  order: 2;
+}
+mat-selection-list span.mdc-list-item__end {
+  order: 1;
+} */ ;

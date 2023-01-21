@@ -1,0 +1,98 @@
+<div>
+  <mat-toolbar fxLayout fxLayoutAlign="end center">
+    <button mat-icon-button (click)="onCloseClick()">
+      <mat-icon>close</mat-icon>
+    </button>
+  </mat-toolbar>
+  <div class="p-20 clearfix">
+    <mat-form-field class="w-100" appearance="fill">
+      <!-- <mat-label>Title</mat-label> -->
+      <input
+        placeholder="Add title"
+        [(ngModel)]="todoFormFields.title"
+        matInput
+      />
+    </mat-form-field>
+    <div fxLayout fxLayoutGap="10px" style="height: 80px">
+      <mat-form-field fxFex="65" appearance="fill">
+        <!-- <mat-label>Choose a date</mat-label> -->
+        <input
+          matInput
+          [matDatepicker]="picker"
+          [(ngModel)]="todoFormFields.date"
+        />
+        <mat-datepicker-toggle
+          matIconPrefix
+          [for]="picker"
+        ></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+      </mat-form-field>
+      <mat-form-field appearance="fill">
+        <!-- <mat-label>Choose a time</mat-label> -->
+        <input
+          class="my-input"
+          matInput
+          [(ngModel)]="todoFormFields.time"
+          [ngxTimepicker]="toggleTimepicker"
+          [disableClick]="true"
+          readonly
+        />
+        <ngx-material-timepicker-toggle
+          [for]="toggleTimepicker"
+        ></ngx-material-timepicker-toggle>
+        <ngx-material-timepicker
+          [theme]="darkTheme"
+          class="timepicker-overlay"
+          #toggleTimepicker
+        ></ngx-material-timepicker>
+      </mat-form-field>
+    </div>
+    <!-- <div class="toggle-example">
+      <input
+        [ngxTimepicker]="toggleTimepicker"
+        [disableClick]="true"
+        readonly
+      />
+      <ngx-material-timepicker-toggle
+        [for]="toggleTimepicker"
+      ></ngx-material-timepicker-toggle>
+      <ngx-material-timepicker #toggleTimepicker></ngx-material-timepicker>
+    </div> -->
+    <mat-form-field class="w-100" appearance="fill">
+      <!-- <mat-label>Priority</mat-label> -->
+      <mat-select
+        placeholder="Choose priority"
+        [(ngModel)]="todoFormFields.priority"
+      >
+        <mat-option value="low">
+          Low<mat-icon matSuffix style="color: transparent"
+            >star</mat-icon
+          ></mat-option
+        >
+        <mat-option value="high"
+          >High<mat-icon matSuffix>star</mat-icon></mat-option
+        >
+      </mat-select>
+      <mat-icon matPrefix>flag</mat-icon>
+    </mat-form-field>
+    <mat-form-field class="w-100" appearance="fill">
+      <!-- <mat-label>Description</mat-label> -->
+      <textarea
+        placeholder="Add description"
+        [(ngModel)]="todoFormFields.description"
+        matInput
+        [rows]="3"
+      ></textarea>
+      <mat-icon matPrefix>notes</mat-icon>
+    </mat-form-field>
+    <button
+      mat-raised-button
+      color="primary"
+      class="inline-to-end mat-button"
+      [mat-dialog-close]="todoFormFields"
+      cdkFocusInitial
+    >
+      Save
+    </button>
+  </div>
+</div>

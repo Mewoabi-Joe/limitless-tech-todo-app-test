@@ -1,0 +1,128 @@
+<div>
+  <mat-toolbar fxLayout fxLayoutAlign="center center">
+    <span [fxShow]="isDisabled">Task details</span>
+    <span [fxShow]="!isDisabled">Edit tasks</span>
+    <button mat-icon-button style="margin-left: auto" (click)="onCloseClick()">
+      <mat-icon>close</mat-icon>
+    </button>
+  </mat-toolbar>
+  <div class="p-20 clearfix">
+    <mat-form-field class="w-100" appearance="fill">
+      <!-- <mat-label>Title</mat-label> -->
+      <input
+        [disabled]="isDisabled"
+        placeholder="Add title"
+        [(ngModel)]="todo.title"
+        matInput
+      />
+    </mat-form-field>
+    <div fxLayout fxLayoutGap="10px" style="height: 80px">
+      <mat-form-field fxFex="65" appearance="fill">
+        <!-- <mat-label>Choose a date</mat-label> -->
+        <input
+          [disabled]="isDisabled"
+          matInput
+          [(ngModel)]="todo.date"
+          [matDatepicker]="picker"
+        />
+        <mat-datepicker-toggle
+          matIconPrefix
+          [for]="picker"
+        ></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+      </mat-form-field>
+      <mat-form-field appearance="fill">
+        <!-- <mat-label>Choose a time</mat-label> -->
+        <input
+          [disabled]="isDisabled"
+          class="my-input"
+          matInput
+          [ngxTimepicker]="toggleTimepicker"
+          [disableClick]="true"
+          readonly
+          [(ngModel)]="todo.time"
+          [value]="todo.time"
+        />
+        <ngx-material-timepicker-toggle
+          [for]="toggleTimepicker"
+        ></ngx-material-timepicker-toggle>
+        <ngx-material-timepicker
+          [theme]="darkTheme"
+          class="timepicker-overlay"
+          #toggleTimepicker
+        ></ngx-material-timepicker>
+      </mat-form-field>
+    </div>
+    <!-- <div class="toggle-example">
+        <input
+          [ngxTimepicker]="toggleTimepicker"
+          [disableClick]="true"
+          readonly
+        />
+        <ngx-material-timepicker-toggle
+          [for]="toggleTimepicker"
+        ></ngx-material-timepicker-toggle>
+        <ngx-material-timepicker #toggleTimepicker></ngx-material-timepicker>
+      </div> -->
+    <mat-form-field class="w-100" appearance="fill">
+      <!-- <mat-label>Priority</mat-label> -->
+      <mat-select
+        class="my-select"
+        [disabled]="isDisabled"
+        placeholder="Choose priority"
+        [(ngModel)]="todo.priority"
+      >
+        <mat-option value="low">
+          Low<mat-icon matSuffix style="color: transparent"
+            >star</mat-icon
+          ></mat-option
+        >
+        <mat-option value="high"
+          >High<mat-icon matSuffix>star</mat-icon></mat-option
+        >
+      </mat-select>
+      <mat-icon matPrefix>flag</mat-icon>
+    </mat-form-field>
+    <mat-form-field class="w-100" appearance="fill">
+      <!-- <mat-label>Description</mat-label> -->
+      <textarea
+        [disabled]="isDisabled"
+        placeholder="Add description"
+        [(ngModel)]="todo.description"
+        matInput
+        [rows]="5"
+      ></textarea>
+      <mat-icon matPrefix>notes</mat-icon>
+    </mat-form-field>
+    <div [fxShow]="isDisabled">
+      <button
+        [fxHide]="todo.isCompleted"
+        mat-raised-button
+        color="primary"
+        class="inline-to-end mat-button"
+        (click)="onEditClick()"
+      >
+        Edit
+      </button>
+      <button
+        mat-raised-button
+        color="warn"
+        class="inline-to-end mat-button"
+        cdkFocusInitial
+        [mat-dialog-close]="todo"
+      >
+        Delete
+      </button>
+    </div>
+    <button
+      [fxShow]="!isDisabled"
+      mat-raised-button
+      color="primary"
+      class="inline-to-end mat-button"
+      cdkFocusInitial
+      [mat-dialog-close]="todo"
+    >
+      Save
+    </button>
+  </div>
+</div>

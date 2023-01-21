@@ -1,0 +1,35 @@
+<mat-card [ngClass]="{ 'the-clickable-part': isClickable }">
+  <mat-card-content fxLayout fxLayoutAlign="space-between center">
+    <mat-checkbox
+      (mouseenter)="setBackgroundColorBack()"
+      color="primary"
+      fxFlex="20"
+      [(ngModel)]="isCompleted"
+      (change)="onCheckboxChange($event.checked)"
+    ></mat-checkbox>
+    <div
+      (mouseenter)="setBackgroundColor()"
+      (click)="onCardClick()"
+      fxFlex="80"
+    >
+      <span fxLayout fxLayoutAlign="start center">
+        <mat-chip [fxShow]="todo?.priority == 'high'">High-P</mat-chip>
+        <mat-chip
+          [fxShow]="todo?.priority == 'low'"
+          style="background-color: #ccc !important"
+          disabled
+          >Low-P</mat-chip
+        >
+
+        <span class="mat-subtitle-2 ml-10">{{ todo?.title }}</span></span
+      >
+      <div fxLayout fxLayoutAlign="end end">
+        <span class="mat-body-2 mr-10">{{ todo?.date?.toDate() | date }}</span>
+
+        <span class="mat-body-2">{{
+          todo?.date?.toDate() | date : "shortTime"
+        }}</span>
+      </div>
+    </div>
+  </mat-card-content>
+</mat-card>
